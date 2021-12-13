@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KevinWebApplication_Member", "KevinWebApplication_Member\KevinWebApplication_Member.csproj", "{EE025A58-A9BF-46C4-9979-BEF86DF0E160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Teach_Frontend_Member", "..\..\aspnet-mvc-member-register-main (1)\aspnet-mvc-member-register-main\Teach_Frontend_Member\Teach_Frontend_Member.csproj", "{8485C78B-EB8E-49CB-BD42-EC491EA4618B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE025A58-A9BF-46C4-9979-BEF86DF0E160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE025A58-A9BF-46C4-9979-BEF86DF0E160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE025A58-A9BF-46C4-9979-BEF86DF0E160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE025A58-A9BF-46C4-9979-BEF86DF0E160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8485C78B-EB8E-49CB-BD42-EC491EA4618B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8485C78B-EB8E-49CB-BD42-EC491EA4618B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8485C78B-EB8E-49CB-BD42-EC491EA4618B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8485C78B-EB8E-49CB-BD42-EC491EA4618B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA13D820-9702-41B6-AA0D-C859E02713B1}
+	EndGlobalSection
+EndGlobal

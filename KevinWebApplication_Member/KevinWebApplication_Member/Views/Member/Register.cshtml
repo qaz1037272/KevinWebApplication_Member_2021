@@ -1,0 +1,91 @@
+﻿
+<div id="Vue-js">
+    <div class="panel panel-primary">
+        <div class="panel-heading">註冊頁面</div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label>帳號</label>
+                <input type="text" class="form-control" v-model="form.UserID">
+            </div>
+            <div class="form-group">
+                <label>密碼</label>
+                <input type="password" class="form-control" v-model="form.UserPwd">
+            </div>
+            <div class="form-group">
+                <label>姓名</label>
+                <input type="text" class="form-control" v-model="form.UserName">
+            </div>
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" class="form-control" v-model="form.UserMail">
+            </div>
+        </div>
+        <div class="panel panel-footer">
+            <button type="button" class="btn btn-primary" v-on:click="DoRegister()">註冊</button>
+        </div>
+
+    </div>
+    <!--淡入淡出-->
+
+    <div class="modal fade" id="ErrorAlert" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">錯誤訊息</h4>
+                    <div class="modal-body" id="ErrorMsg" style="overflow-x:auto;width:100%;">
+
+                    </div>
+                </div><!--modal-content-->
+            </div><!--modal-dialog-->
+
+        </div><!--modal-->
+    </div>
+</div>
+    @section scripts{
+        <script>
+        var VuePage = new Vue({
+            el: '#Vue-js'
+            , data: function () {
+                var data = { form: {} }
+                return data;
+            }
+            , methods: {
+                //執行註冊按鈕
+                DoRegister: function () {
+                    var self = this;  //註冊按鈕函數取得值
+                    var postData = {};
+                    postData['UserID'] = self.form.UserID;
+                    postData['UserPwd'] = self.form.UserPwd;
+                    postData['UserName'] = self.form.UserName;
+                    postData['UserMail'] = self.form.UserMail;
+
+                    $.ajax({
+                        url: '@Url.Content(@"~/MemberController /DoRegister")', //呼叫Controller DoRegister處理註冊
+                        method: 'POST', //HTTP協定 使顯示網頁不會固定
+                        dataType: 'json', //呼叫型態為JSON
+                        data: { inModel: postData }, //抓取的資料
+                        //當輸入都輸入正確時
+                        success: function (datas) {
+                            if (datas.ErrMsg) {
+                                //當資料重複值，顯示"帳號已經存在"
+                                alert(datas.ErrMsg);
+                                return;
+                            }
+                            //資料沒有重複值，顯示註冊成功結果
+                            alert(datas.ResultMsg);
+                        },
+                        //當沒有資料沒有輸入完整造成錯誤
+                        error: function (err) {
+                            $('#ErrorMsg').html(err.responseText);
+                            $('#ErrorAlert').modal('toggle');
+                        },
+                    });
+                }
+
+            }
+        })
+        </script>
+
+    }
+
